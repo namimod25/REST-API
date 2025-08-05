@@ -1,12 +1,8 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application, Router } from 'express';
+import { routes } from './routes';
 
 const app: Application = express();
 const port: Number = 3232;
 
-app.use('/healt', (_req: Request, res: Response) => {
-  res.status(200).send({ data: 'hello' });
-});
-
+routes(app);
 app.listen(port, () => console.log(`Server berjalan port ${port}`));
-
-export default app;
