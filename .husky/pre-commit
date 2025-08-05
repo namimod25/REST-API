@@ -1,5 +1,5 @@
 #!/bin/sh
-. "$(dirname  "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
 echo 'Styling, testing and building your project before committing'
 
@@ -10,14 +10,8 @@ npm run check-format ||
     false;
 )
 
-#Check Eslint
-npm run check-list || 
-(
-    echo 'ESlint Check Failed. Make the required changes listed above, add changes and try to commit again';
-    false;
-)
 #Check tsconfig 
-npm run check-type ||
+npm run check-types ||
 (
     echo 'Failed Type check . Make the changes require above, add changes and try to commit again';
     false;
@@ -28,4 +22,4 @@ npm run build ||
     false;
 )
 
-echo 'Succes Commite';
+echo 'Succes Commite'

@@ -13,7 +13,7 @@
     "prepare": "husky",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
-    "check-lint": "eslint . --ext ts tsx --ext js"
+    "check-lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "husky": {
     "hooks": {
@@ -24,14 +24,22 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@types/express": "^5.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.38.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.0",
+    "@types/supertest": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.3",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
-    "prettier": "3.6.2",
+    "jest": "^30.0.5",
+    "lint-staged": "^16.1.4",
+    "prettier": "^3.6.2",
     "pretty-quick": "^4.2.2",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^4.9.5"
   },
