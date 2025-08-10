@@ -9,13 +9,19 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
-    "project": ["**/tsconfig.json"]
+    "project": [
+      "**/tsconfig.json"
+    ]
   },
-  "plugin": ["@typescript-eslint"],
+  "plugin": [
+    "@typescript-eslint"
+  ],
   "ignorePatterns": [
     "**/build/*",
     "**/node_modules/*",
@@ -25,6 +31,7 @@
   "rules": {
     "prettier.prettier": "error",
     "@typescript-eslint/no-unnecessary-template-expression": "off",
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }
