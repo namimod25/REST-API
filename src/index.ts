@@ -4,6 +4,9 @@ import { logger } from './utils/logger';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+//koneksi_MongoDb
+import './utils/connect_db';
+
 const app: Application = express();
 const port: Number = 3232;
 
