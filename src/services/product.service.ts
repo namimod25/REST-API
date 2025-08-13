@@ -1,12 +1,14 @@
 import productModel from '../models/product.models';
+import { logger } from '../utils/logger';
 
-export const getProduct = async () => {
-  productModel
+export const getProductFromDB = async () => {
+  return await productModel
     .find()
     .then((data) => {
-      console.log(data);
+      return data;
     })
     .catch((error) => {
-      console.log(error);
+      logger.info('cannot get data db');
+      logger.error(error);
     });
 };
