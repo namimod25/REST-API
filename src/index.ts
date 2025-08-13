@@ -1,4 +1,4 @@
-import express, { Application, Router } from 'express';
+import express, { Application } from 'express';
 import { routes } from './routes/index.routes';
 import { logger } from './utils/logger';
 import bodyParser from 'body-parser';
