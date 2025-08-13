@@ -14,14 +14,12 @@ export const createProduct = (req: Request, res: Response) => {
     });
   }
   logger.info('success Add new product');
-  return res
-    .status(200)
-    .send({
-      status: true,
-      statusCode: 200,
-      message: 'Add Product success',
-      data: value,
-    });
+  return res.status(200).send({
+    status: true,
+    statusCode: 200,
+    message: 'Add Product success',
+    data: value,
+  });
 };
 
 export const getProduct = (req: Request, res: Response) => {
