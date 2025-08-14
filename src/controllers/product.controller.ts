@@ -3,6 +3,13 @@ import { createProductValidation } from '../validation/product.validation';
 import { logger } from '../utils/logger';
 import { getProductFromDB } from '../services/product.service';
 
+interface ProductType {
+  product_id: String;
+  name: string;
+  price: number;
+  size: string;
+}
+
 export const createProduct = (req: Request, res: Response) => {
   const { error, value } = createProductValidation(req.body);
   if (error) {
@@ -24,29 +31,25 @@ export const createProduct = (req: Request, res: Response) => {
 };
 
 export const getProduct = async (req: Request, res: Response) => {
-  const products = await getProductFromDB();
+  const products: any = await getProductFromDB();
 
-  logger.info('success get data');
-  return res
-    .status(200)
-    .send({ status: true, statusCode: 200, data: products });
+  const {
+    params: { name },
+  } = req;
 
-  //   const {
-  //     params: { name },
-  //   } = req;
-
-  //   if (name) {
-  //     const filterProducts = products.filter((product) => {
-  //       if (product.name === name) {
-  //         return product;
-  //       }
-  //     });
-  //     if (filterProducts.length === 1) {
-  //       logger.info('Data Not Found');
-  //       return res
-  //         .status(404)
-  //         .send({ status: false, statusCode: 404, data: filterProducts[0] });
-  //     }
-  //   }
-  //
+  if (name) {
+    const filterProduct = products.filter((product: ProductType) => {
+      if (product.name === name) {
+        return product;
+      }
+    });
+    if (filterProduct.length === 0) {
+      logger.info('Data Not Found');
+      return res.status(404).send({ status: false, statusCode: 404, data: {} });
+    }
+    logger.info('success get data');
+    return res
+      .status(200)
+      .send({ status: true, statusCode: 200, data: products });
+  }
 };
