@@ -45,7 +45,7 @@ export const getProduct = async (req: Request, res: Response) => {
     });
     if (filterProduct.length === 0) {
       logger.info('Data Not Found');
-      return res.status(404).send({ status: false, statusCode: 404, data: {} });
+      return res.status(404).send({ status: false, statusCode: 404, data: [] });
     }
     logger.info('success get data');
     return res
